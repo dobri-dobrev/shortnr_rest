@@ -2,6 +2,7 @@
 require 'sinatra'
 require "sinatra/activerecord"
 require './env'
+require './models/Redirect'
 
 
 set :database_file, "database.yml"
