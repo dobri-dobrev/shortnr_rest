@@ -11,11 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920003504) do
+ActiveRecord::Schema.define(version: 20150920220548) do
 
   create_table "redirects", force: :cascade do |t|
     t.string   "url"
     t.string   "short"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "adid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 require 'sinatra'
-require "sinatra/activerecord"
+require 'sinatra/activerecord'
 require './env'
 require './models/Redirect'
+require './models/User'
 
 
 set :database_file, "database.yml"
@@ -11,21 +12,6 @@ set :database_file, "database.yml"
 
 SERVING_URL = ENV['serving_url']
 PASS = ENV['PASS']
-HASH_SET = {}
-
-
-get "/" do
-	content_type :json
-	"hello there!".to_json
-end
-
-get "/:addr" do
-	if HASH_SET[params["addr"]].nil?
-		status 404
-	else
-		redirect HASH_SET[params["addr"]]
-	end
-end 
 
 post "/add/" do
 	json_params = JSON.parse(request.body.read.to_s)
