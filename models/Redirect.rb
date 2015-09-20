@@ -1,5 +1,6 @@
 class Redirect < ActiveRecord::Base
 	validates :url, presence: true
+	belongs_to :customer
 	def self.build_redirect(url)
 		params = {}
 		params[:short] = generate_rand_string()
